@@ -1,0 +1,52 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "WorkTimer";
+}
+
+<div class="text-center">
+    <h1 class="display-4">WorkTimer</h1>
+
+    <form method="post">
+        <div class="row justify-content-md-center py-2">
+            <div class="col-sm-2">
+                <label for="morning-start" class="form-label">Início</label>
+            </div>
+            <div class="col-auto">
+                <input type="time" id="morning-start" name="morning-start" class="form-control" asp-for="Timer.MorningStart" required />
+            </div>
+        </div>
+
+        <div class="row justify-content-md-center py-2">
+            <div class="col-sm-2">
+                <label for="morning-end" class="form-label">Almoço</label>
+            </div>
+            <div class="col-auto">
+                <input type="time" name="morning-end" class="form-control" asp-for="Timer.MorningEnd" required />
+            </div>
+        </div>
+
+        <div class="row justify-content-md-center py-2">
+            <div class="col-sm-2">
+                <label for="afternoon-start" class="form-label">Retorno</label>
+            </div>
+            <div class="col-auto">
+                <input type="time" name="afternoon-start" class="form-control" asp-for="Timer.AfternoonStart" required />
+            </div>
+        </div>
+
+        <div class="row justify-content-md-center py-2">
+            <div class="col-sm-2">
+                <label for="afternoon-end" class="form-label">Fim do expediente</label>
+            </div>
+            <div class="col-auto">
+                <input type="time" name="afternoon-end" class="form-control" asp-for="Timer.AfternoonEnd" disabled />
+            </div>
+        </div>
+
+        <div class="py-3 justify-content-md-center">
+            <input type="submit" class="btn btn-primary" value="Calcular" asp-page-handler="Submit" />
+            <input type="submit" class="btn btn-light" value="Limpar" asp-page-handler="ResetForm" />
+        </div>
+    </form>
+</div>
